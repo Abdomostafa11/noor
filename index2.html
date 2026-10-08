@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إلى نور 🤍 | 17</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: #08050d;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* ================= الخلفية ================= */
+        body:before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at 20% 20%, rgba(220, 130, 190, .18), transparent 30%), radial-gradient(circle at 80% 30%, rgba(150, 100, 220, .16), transparent 30%), radial-gradient(circle at 50% 90%, rgba(255, 180, 220, .10), transparent 35%);
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        .stars {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            from {
+                opacity: .15;
+                transform: scale(.6)
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1.5)
+            }
+        }
+
+        /* ================= شاشة الدخول ================= */
+        #login {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: radial-gradient(circle at center, #2b1236 0%, #09050d 65%);
+            transition: 1s;
+        }
+
+        .login-box {
+            width: 100%;
+            max-width: 430px;
+            text-align: center;
+            padding: 45px 30px;
+            border: 1px solid rgba(255, 255, 255, .15);
+            border-radius: 35px;
+            background: rgba(255, 255, 255, .06);
+            backdrop-filter: blur(25px);
+            box-shadow: 0 30px 100px rgba(0, 0, 0, .6);
+        }
+
+        .crown {
+            font-size: 55px;
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            50% {
+                transform: translateY(-10px)
+            }
+        }
+
+        .login-box h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-bottom: 8px;
+            background: linear-gradient(90deg, #fff, #f4a8d6, #c8a9ff);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .login-box p {
+            color: #d8cbdc;
+            margin-bottom: 25px;
+        }
+
+        input {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            outline: none;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 18px;
+            background: rgba(255, 255, 255, .1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, .15);
+        }
+
+        input::placeholder {
+            color: #aaa;
+        }
+
+        .main-btn {
+            width: 100%;
+            margin-top: 15px;
+            padding: 16px;
+            border: 0;
+            border-radius: 50px;
+            font-family: 'Cairo';
+            font-size: 17px;
+            color: white;
+            cursor: pointer;
+            background: linear-gradient(90deg, #d94f9b, #8659dc);
+            box-shadow: 0 10px 35px rgba(210, 80, 160, .3);
+            transition: .3s;
+        }
+
+        .main-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(210, 80, 160, .5);
+        }
+
+        #error {
+            color: #ff8abf;
+            margin-top: 12px;
+            display: none;
+        }
+
+        /* ================= الموقع ================= */
+        #site {
+            display: none;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .small-title {
+            color: #e7b6d6;
+            letter-spacing: 3px;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(80px, 18vw, 170px);
+            line-height: .9;
+            background: linear-gradient(120deg, #fff, #f8c3e2, #c9a9ff, #fff);
+            background-size: 300%;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: gradient 6s infinite;
+        }
+
+        @keyframes gradient {
+            50% {
+                background-position: 100%
+            }
+        }
+
+        .hero h2 {
+            margin-top: 25px;
+            font-weight: 400;
+            font-size: clamp(18px, 4vw, 27px);
+            color: #eee0ed;
+        }
+
+        .date {
+            margin-top: 15px;
+            color: #cbb7ce;
+            letter-spacing: 4px;
+        }
+
+        .scroll {
+            margin-top: 60px;
+            color: #aaa;
+            animation: float 2s infinite;
+        }
+
+        /* ================= الأقسام ================= */
+        section {
+            padding: 100px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: #d99ac7;
+            font-size: 14px;
+            letter-spacing: 3px;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-top: 8px;
+        }
+
+        /* ================= الكاونت داون ================= */
+        .countdown {
+            max-width: 850px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .time {
+            min-width: 130px;
+            padding: 25px 15px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, .055);
+            border: 1px solid rgba(255, 255, 255, .12);
+            backdrop-filter: blur(15px);
+        }
+
+        .time strong {
+            display: block;
+            font-family: 'Playfair Display';
+            font-size: 42px;
+            color: #f3badc;
+        }
+
+        .time span {
+            color: #aaa;
+        }
+
+        /* ================= الصور ================= */
+        .photo-gallery {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .photo {
+            width: 100%;
+            max-width: 380px;
+            height: 500px;
+            margin: auto;
+            padding: 8px;
+            border-radius: 35px;
+            background: linear-gradient(135deg, #e8b2d5, #9d75c9, #fff);
+            box-shadow: 0 25px 80px rgba(200, 120, 190, .2);
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 28px;
+            display: block;
+            background: #160c1c;
+            transition: .5s;
+        }
+
+        .photo img:hover {
+            transform: scale(1.02);
+        }
+
+        .photo-placeholder {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #aaa;
+            padding: 30px;
+        }
+
+        /* ================= صورة ريما ================= */
+        .mama-photo {
+            max-width: 380px;
+            height: 500px;
+            margin: 0 auto 40px;
+            padding: 8px;
+            border-radius: 35px;
+            background: linear-gradient(135deg, #e8b2d5, #9d75c9, #fff);
+            box-shadow: 0 25px 80px rgba(200, 120, 190, .2);
+        }
+
+        .mama-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 28px;
+            display: block;
+        }
+
+        /* ================= الرسالة ================= */
+        .letter {
+            max-width: 800px;
+            margin: auto;
+            padding: 45px;
+            border-radius: 35px;
+            background: rgba(255, 255, 255, .055);
+            border: 1px solid rgba(255, 255, 255, .12);
+            backdrop-filter: blur(15px);
+            line-height: 2.4;
+            font-size: 18px;
+            color: #eee;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, .25);
+        }
+
+        .letter .name {
+            color: #f2afd5;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        /* ================= أمنية ================= */
+        .wish {
+            max-width: 700px;
+            margin: auto;
+            text-align: center;
+            padding: 50px 30px;
+            border-radius: 35px;
+            background: linear-gradient(135deg, rgba(214, 125, 179, .12), rgba(129, 94, 184, .12));
+            border: 1px solid rgba(255, 255, 255, .12);
+        }
+
+        .wish .big {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .wish p {
+            line-height: 2;
+            color: #ddd;
+        }
+
+        /* ================= مفاجأة ================= */
+        .surprise {
+            text-align: center;
+        }
+
+        .surprise button {
+            padding: 18px 40px;
+            border: 0;
+            border-radius: 50px;
+            font-family: 'Cairo';
+            font-size: 18px;
+            color: white;
+            background: linear-gradient(90deg, #e25ca7, #7957d8);
+            cursor: pointer;
+            box-shadow: 0 15px 45px rgba(200, 80, 170, .35);
+        }
+
+        #secret {
+            display: none;
+            max-width: 700px;
+            margin: 35px auto 0;
+            padding: 35px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .12);
+            animation: appear 1s;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(25px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        /* ================= فوتَر ================= */
+        footer {
+            padding: 60px 20px;
+            text-align: center;
+            color: #8d8190;
+            border-top: 1px solid rgba(255, 255, 255, .06);
+        }
+
+        footer strong {
+            color: #dba5ca;
+        }
+
+        /* ================= قلوب ================= */
+        .heart {
+            position: fixed;
+            bottom: -30px;
+            font-size: 18px;
+            animation: heartUp 5s linear forwards;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        @keyframes heartUp {
+            0% {
+                transform: translateY(0) rotate(0);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1
+            }
+
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* ================= موبايل ================= */
+        @media(max-width:600px) {
+            .login-box {
+                padding: 35px 20px;
+            }
+
+            .login-box h1 {
+                font-size: 34px;
+            }
+
+            .hero h1 {
+                font-size: 90px;
+            }
+
+            section {
+                padding: 75px 15px;
+            }
+
+            .section-title h2 {
+                font-size: 34px;
+            }
+
+            .time {
+                min-width: 105px;
+            }
+
+            .time strong {
+                font-size: 32px;
+            }
+
+            .letter {
+                padding: 28px 20px;
+                font-size: 16px;
+            }
+
+            .photo {
+                height: 450px;
+            }
+
+            .photo-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .mama-photo {
+                height: 450px;
+            }
+        }
+    </style>
+</head>
+
+<body> <!-- النجوم -->
+    <div class="stars" id="stars"></div> <!-- ================= شاشة الدخول ================= -->
+    <div id="login">
+        <div class="login-box">
+            <div class="crown">👑</div>
+            <h1>إلى نور</h1>
+            <p> هناك شيء جميل جدًا أُعدّ لكِ... <br> لكن أولًا أدخلي المفتاح 🤍 </p> <input type="password"
+                id="password" placeholder="كلمة السر" maxlength="10"> <button class="main-btn" onclick="enterSite()"> ✨
+                افتحي الهدية </button>
+            <div id="error"> كلمة السر غير صحيحة 🤍 </div>
+        </div>
+    </div> <!-- ================= الموقع ================= -->
+    <div id="site"> <!-- HERO -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="small-title"> A SPECIAL DAY • 10.10.2026 </div>
+                <h1>نور</h1>
+                <h2> اليوم مش مجرد تاريخ... <br> اليوم بداية سنة جديدة من أجمل فصول حياتك 🤍 </h2>
+                <div class="date"> 17 YEARS OF BEAUTIFUL MOMENTS </div>
+                <div class="scroll"> ↓ <br> انزلي لتشوفي المفاجأة </div>
+            </div>
+        </section> <!-- العد التنازلي -->
+        <section>
+            <div class="section-title"> <span>THE COUNTDOWN</span>
+                <h2>اللحظة المنتظرة ✨</h2>
+            </div>
+            <div class="countdown">
+                <div class="time"> <strong id="days">00</strong> <span>يوم</span> </div>
+                <div class="time"> <strong id="hours">00</strong> <span>ساعة</span> </div>
+                <div class="time"> <strong id="minutes">00</strong> <span>دقيقة</span> </div>
+                <div class="time"> <strong id="seconds">00</strong> <span>ثانية</span> </div>
+            </div>
+        </section> <!-- ================= صور نور ================= -->
+        <section>
+            <div class="section-title"> <span>A BEAUTIFUL SOUL</span>
+                <h2>نور 🤍</h2>
+            </div>
+            <div class="photo-gallery">
+                <div class="photo"> <img src="noor.jpeg" alt="نور"> </div>
+                <div class="photo"> <img src="noor2.jpeg" alt="نور"> </div>
+                <div class="photo"> <img src="noor3.jpeg" alt="نور"> </div>
+                <div class="photo"> <img src="noor4.jpeg" alt="نور"> </div>
+            </div>
+        </section> <!-- الرسالة -->
+        <section>
+            <div class="section-title"> <span>A MESSAGE FOR YOU</span>
+                <h2>رسالة من القلب 💌</h2>
+            </div>
+            <div class="letter">
+                <div class="name"> نور ❤️ </div> اليوم يوم مختلف... <br><br> اليوم صار عمرك <strong>17 سنة</strong>،
+                وبدل ما تكون مجرد سنة جديدة في عمرك، أتمنى تكون بداية لكل شيء جميل نفسك توصلي له. <br><br> أتمنى تفضلي
+                دايمًا بنفس قلبك الجميل، وبنفس ابتسامتك، وما تخلي أي شيء في الدنيا يطفي النور اللي جواكي. <br><br>
+                الحياة قدامك لسه طويلة، وفيها أحلام كثيرة، وأماكن كثيرة، وناس حلوة، وذكريات لسه ما اتولدتش. <br><br>
+                أتمنى كل سنة جاية تكون أحلى من اللي قبلها، وكل أمنية في قلبك تلاقي طريقها ليكي. <br><br> <strong
+                    style="color:#efafd4"> كل سنة وإنتِ طيبة يا نور... وكل سنة وإنتِ بخير وسعادة 🤍 </strong>
+            </div>
+        </section> <!-- ================= الأم ريما ================= -->
+        <section>
+            <div class="section-title"> <span>FROM SOMEONE SPECIAL</span>
+                <h2>إلى نور من ماما ريما 🌷</h2>
+            </div> <!-- صورة ماما ريما -->
+            <div class="mama-photo"> <img src="rema.jpeg" alt="ماما ريما"> </div>
+            <div class="letter">
+                <div class="name"> نور الغالية ❤️ </div> من يوم ما جيتي الدنيا، وإنتِ جزء جميل من حياتي. <br><br> كل سنة
+                بتكبري فيها، أنا بتمنى أشوفك أسعد وأنجح إنسانة. <br><br> ربنا يحميكي من كل شر، ويكتبلك الخير في كل خطوة،
+                ويحققلك كل حاجة نفسك فيها. <br><br> ومهما كبرتي، هتفضلي دايمًا بنتي وحبيبتي. <br><br> <strong
+                    style="color:#efafd4"> كل سنة وإنتِ أجمل نور في حياتي 🤍 </strong>
+            </div>
+        </section> <!-- الأمنية -->
+        <section>
+            <div class="section-title"> <span>MAKE A WISH</span>
+                <h2>تمني أمنية 🌙</h2>
+            </div>
+            <div class="wish">
+                <div class="big">🌙✨</div>
+                <p> غمضي عينيكي للحظة... <br><br> وتمني أمنية من قلبك. <br><br> محدش لازم يعرفها... <br> خليها بينك وبين
+                    ربنا. <br><br> وإن شاء الله تكون سنتك الـ17 بداية لتحقيق أجمل أمنياتك. </p>
+            </div>
+        </section> <!-- المفاجأة -->
+        <section class="surprise">
+            <div class="section-title"> <span>ONE LAST THING</span>
+                <h2>لسه في مفاجأة 🎁</h2>
+            </div> <button onclick="showSecret()"> 🎁 افتحي المفاجأة </button>
+            <div id="secret">
+                <div style="font-size:50px;margin-bottom:15px;"> 🎂🤍✨ </div>
+                <p style="line-height:2.3;font-size:18px;"> نور... <br><br> يمكن الهدية دي مجرد موقع صغير، لكن الفكرة
+                    وراها إن اليوم ده يستاهل يفضل ذكرى جميلة. <br><br> عيد ميلاد سعيد يا نور، وإن شاء الله الـ17 تكون
+                    سنة مختلفة، مليانة ضحك ونجاح وفرحة. <br><br> <strong style="color:#f2afd5"> Happy 17th Birthday Noor
+                        🤍 </strong> </p>
+            </div>
+        </section>
+        <footer> صُنع بحب من أجل <strong>نور</strong> 🤍 <br><br> 10 • 10 • 2026 </footer>
+    </div>
+    <script> /* ================= النجوم ================= */ const stars = document.getElementById("stars"); for (let i = 0; i < 100; i++) {const star = document.createElement("div"); star.className = "star"; star.style.left = Math.random() * 100 + "%"; star.style.top = Math.random() * 100 + "%"; star.style.animationDelay = (Math.random() * 3) + "s"; stars.appendChild(star);} /* ================= الدخول ================= */ function enterSite() {const password = document.getElementById("password").value.trim(); if (password === "10/10/2009") {document.getElementById("login").style.opacity = "0"; setTimeout(function () {document.getElementById("login").style.display = "none"; document.getElementById("site").style.display = "block"; startHearts();}, 900);} else {document.getElementById("error").style.display = "block";} } /* السماح بزر Enter */ document.getElementById("password").addEventListener("keydown", function (e) {if (e.key === "Enter") {enterSite();} }); /* ================= العد التنازلي ================= */ function updateCountdown() {const target = new Date("October 10, 2026 00:00:00").getTime(); const now = new Date().getTime(); const difference = target - now; if (difference <= 0) {document.getElementById("days").innerText = "00"; document.getElementById("hours").innerText = "00"; document.getElementById("minutes").innerText = "00"; document.getElementById("seconds").innerText = "00"; return;} const days = Math.floor(difference / (1000 * 60 * 60 * 24)); const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)); const seconds = Math.floor((difference % (1000 * 60)) / 1000); document.getElementById("days").innerText = days; document.getElementById("hours").innerText = hours; document.getElementById("minutes").innerText = minutes; document.getElementById("seconds").innerText = seconds;} updateCountdown(); setInterval(updateCountdown, 1000); /* ================= المفاجأة ================= */ function showSecret() {document.getElementById("secret").style.display = "block"; document.getElementById("secret").scrollIntoView({behavior: "smooth", block: "center"}); startHearts();} /* ================= القلوب ================= */ function startHearts() {setInterval(function () {const heart = document.createElement("div"); heart.className = "heart"; const hearts = ["🤍", "💗", "💖", "✨", "🌸"]; heart.innerText = hearts[Math.floor(Math.random() * hearts.length)]; heart.style.left = Math.random() * 100 + "%"; heart.style.animationDuration = (4 + Math.random() * 4) + "s"; document.body.appendChild(heart); setTimeout(function () {heart.remove();}, 8000);}, 700);} </script>
+</body>
+
+</html>
